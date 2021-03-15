@@ -1,5 +1,5 @@
 import { parseInputs } from './utils/parse-inputs'
-import { inputsAreValid } from "./utils/inputs-are-valid";
+import { inputsAreValid } from './utils/inputs-are-valid'
 
 export const run = (alertService, componentService) => {
   alertService.hideErrors()

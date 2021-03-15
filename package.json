@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack"
+    "start": "webpack",
+    "format": "prettier --write \"src/**/*.js\""
   },
   "repository": {
     "type": "git",
