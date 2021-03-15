@@ -17,11 +17,12 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: [
                   // load in revers order
-                  'style-loader', /*2. Inject CSS into the DOM.*/
-                  'css-loader' /*1. Take your css and turn it into JS*/
+                  'style-loader', /*3. Inject CSS into the DOM.*/
+                  'css-loader', /*2. Take your css and turn it into JS*/
+                  'sass-loader'/*1. Turns sass into css*/
                 ]
             }
         ]

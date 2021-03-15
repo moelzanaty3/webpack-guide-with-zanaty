@@ -1,0 +1,8 @@
+$primary: teal;
+$danger: purple;
+
+@import "~bootstrap/scss/bootstrap";
+h1 {
+    background: purple;
+    color: white;
+}
