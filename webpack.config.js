@@ -14,5 +14,17 @@ module.exports = {
         // display line numbers correctly since it gets mapped to transpiled code
         // instead of the original code (No Source Maps from Loaders).
     devtool: false,
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                  // load in revers order
+                  'style-loader', /*2. Inject CSS into the DOM.*/
+                  'css-loader' /*1. Take your css and turn it into JS*/
+                ]
+            }
+        ]
+    }
 
 }
