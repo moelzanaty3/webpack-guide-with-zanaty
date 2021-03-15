@@ -1,0 +1,25 @@
+{
+  "name": "webpack-udacity-course",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammedelzanaty/webpack-udacity-course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohammedelzanaty/webpack-udacity-course/issues"
+  },
+  "homepage": "https://github.com/mohammedelzanaty/webpack-udacity-course#readme",
+  "dependencies": {
+    "webpack": "^5.25.1",
+    "webpack-cli": "^4.5.0"
+  }
+}
