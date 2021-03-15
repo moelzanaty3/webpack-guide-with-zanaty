@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack",
+    "start": "webpack --config webpack.config.js",
     "format": "prettier --write \"src/**/*.js\""
   },
   "repository": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/mohammedelzanaty/webpack-udacity-course#readme",
   "dependencies": {
+    "@types/webpack": "^4.41.26",
     "webpack": "^5.25.1",
     "webpack-cli": "^4.5.0"
   }
