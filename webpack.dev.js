@@ -24,15 +24,14 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: ["html-loader"]
+        use: ['html-loader']
       },
       {
         test: /\.(svg|png|jpg|gif)$/,
         use: {
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            name: "[name].[contenthash].[ext]",
-            outputPath: "images"
+            name: '[name].[contenthash].[ext]'
           }
         }
       }

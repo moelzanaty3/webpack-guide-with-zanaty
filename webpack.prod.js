@@ -1,6 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -15,7 +18,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           // load in revers order
-          'style-loader' /*3. Inject CSS into the DOM.*/,
+          MiniCssExtractPlugin.loader /*3. Extract css into files*/,
           'css-loader' /*2. Take your css and turn it into JS*/,
           'sass-loader' /*1. Turns sass into css*/
         ]
@@ -30,8 +33,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: "[name].[contenthash].[ext]",
-              outputPath: "images"
+              name: '[name].[contenthash].[ext]'
             }
           }
         ]
@@ -40,8 +42,20 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
-  ]
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' })
+  ],
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin(), // This plugin uses terser to minify your JavaScript.
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          removeComments: true
+        }
+      })
+    ]
+  }
 }
