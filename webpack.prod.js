@@ -25,15 +25,25 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: ['html-loader']
+        use: [{
+          loader: 'html-loader',
+          options: {
+            // https://webpack.js.org/loaders/html-loader/#esmodule
+            // By default, html-loader generates JS modules that 
+            // use the ES modules syntax. There are some cases in which using ES modules is beneficial, 
+            // like in the case of module concatenation and tree shaking.
+            esModule: false,
+          }
+        }]
       },
       {
-        test: /\.(svg|png|jpg|gif)$/,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[contenthash].[ext]'
+              esModule: false,
+              name: 'images/[name].[contenthash].[ext]',
             }
           }
         ]
