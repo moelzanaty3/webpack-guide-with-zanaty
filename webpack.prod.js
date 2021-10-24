@@ -50,14 +50,9 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' })
-  ],
-  optimization: {
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin(), // This plugin uses terser to minify your JavaScript.
+   plugins: [
+      new CleanWebpackPlugin(),
+      new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
       new HtmlWebpackPlugin({
         template: './src/index.html',
         minify: {
@@ -65,7 +60,8 @@ module.exports = {
           collapseWhitespace: true,
           removeComments: true
         }
-      })
+      }),
+      new CssMinimizerPlugin(),
+      new TerserPlugin()
     ]
-  }
 }
